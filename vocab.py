@@ -1,6 +1,8 @@
 import random
 from typing import ValuesView
 from PyDictionary import PyDictionary
+import time
+from plyer import notification
 
 dict = PyDictionary
 file = open("words.txt","r")   #opeing the file containing words
@@ -17,13 +19,13 @@ def get_word():
             valid_word = True
             return word
         
-print(get_word)
+#print(get_word)
 
 def define_word():
     valid_word = False  #skipping words that do nat have definition in pydictionary
     while(not valid_word):
         word = get_word()
-        if(dict.meaning(word, disable_errors = True)):
+        if(dict.meaning(word, disa3ble_errors = True)):
             print(word.upper(),"\n")
             defs = dict.meaning(word)
             for key,value in defs.items():
