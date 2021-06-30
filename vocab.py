@@ -24,13 +24,27 @@ def get_word():
 def define_word():
     valid_word = False  #skipping words that do nat have definition in pydictionary
     while(not valid_word):
+        global word
+        global d
         word = get_word()
-        if(dict.meaning(word, disa3ble_errors = True)):
-            print(word.upper(),"\n")
+        word = word.upper()
+        if(dict.meaning(word, disable_errors = True)):
+            #print(word.upper(),"\n")
             defs = dict.meaning(word)
             for key,value in defs.items():
-                print(str(key) + ": " + str(value).strip("[]\'\"").replace("\'",""))
+                d = str(key) + ": " + str(value)
+                break
             valid_word = True
         
-define_word()
+
             
+if __name__ == '__main__':
+    while True:
+        #word = get_word()
+        define_word()
+        notification.notify(
+            title = word,    #prints word as title
+            message = d,     #prints meaning as message
+            timeout = 10     #display notifiaction for 10 sec
+        )
+        time.sleep(60*60*8)  #repeats after every 8 hours
