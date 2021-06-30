@@ -47,4 +47,4 @@ if __name__ == '__main__':
             message = d,     #prints meaning as message
             timeout = 10     #display notifiaction for 10 sec
         )
-        time.sleep(60*60*8)  #repeats after every 8 hours
+        time.sleep(60*60*8)  #repeats after every 8 hours        
